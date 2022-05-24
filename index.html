@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relogio</title>
+</head>
+
+<style>
+    body{
+        background: black;
+        color: rgb(60, 236, 60);
+        font-family: monospace;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-size: 70px;
+    }
+</style>
+<body>
+
+    <div class="relogio"></div>
+
+    <script>
+       
+        var rel = document.querySelector('.relogio');
+        
+        const relogio = () => {
+            let data = new Date();
+            let hora = data.getHours();
+            let min = data.getMinutes();
+            let seg = data.getSeconds();
+            
+           
+            seg = seg<10 ? '0' + seg : seg;
+            hora = hora<10 ? '0' + hora : hora;
+            min = min<10 ? '0' + min : min;
+           
+            rel.innerHTML =`${hora}:${min}:${seg}`;
+        }
+        setInterval(relogio,1000)
+    </script>
+</body>
+</html>
